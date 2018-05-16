@@ -4,8 +4,12 @@
     5/15/2018
 */
 
-public class Board {
-    public static void main(String args[]) {
+import java.util.ArrayList;
 
+public class Board {
+    private ArrayList<Ship> ships;
+
+    public Board(){
+        ships = new ArrayList<Ship>(1);
     }
 }
