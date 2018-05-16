@@ -22,6 +22,10 @@ public class Ship {
         }
     }
 
+    public ArrayList<Integer[]> getCoordinates(){
+        return coordinates;
+    }
+
     //check hit
     //check destroyed
 }
