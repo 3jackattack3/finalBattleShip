@@ -10,8 +10,6 @@ public class CPU {
 
     private Board computerBoard;  //this might be an issue cuz this isn't currently updated as the computer board takes hits from the player
 
-    private int[] listOfShipLengths;
-
     //private int difficulty;
 
     public CPU(Board computerBoard){
@@ -22,7 +20,7 @@ public class CPU {
     public String pickTarget(Board userBoard, int numDestroyedShips){
         int numShipsOnBoard = numShipsOnBoard(userBoard);
 
-        if(numDestroyedShips == userBoard.size() - numShipsOnBoard){  //changed this without thinking is it right?
+        if(numDestroyedShips == userBoard.numShips() - numShipsOnBoard){  //changed this without thinking is it right?
             return randomSelection();
         }
 
@@ -31,14 +29,14 @@ public class CPU {
         }
     }
 
-    public int numShipsOnBoard(Board userBoard){  //what syntax are we gonna use for the board? periods and x's? 0's and 1's?
-        return userBoard.size();
+    public int numShipsOnBoard(Board userBoard){
+        return userBoard.numShips();
     }
 
     private String randomSelection(){
         Random rand = new Random();
 
-        int[] intCoords = {rand.nextInt(this.computerBoard.getSizeOfBoard()), rand.nextInt(this.computerBoard.getSizeOfBoard())+1};
+        int[] intCoords = {rand.nextInt(this.computerBoard.getBoardSize()), rand.nextInt(this.computerBoard.getBoardSize())+1};
 
         return convertCoordinates(intCoords); //return a random coordinate in the form {capital letter,number}
     }
