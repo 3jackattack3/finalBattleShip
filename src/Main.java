@@ -6,7 +6,10 @@
 
 public class Main {
     public static void main(String args[]) {
-        int[] temp1 = new temp
-        Ship myShip = new Ship({0,0}, 2, {1,0});
+        int[] temp1 = {0,0};
+        int[] temp2 = {1,0};
+        Ship myShip = new Ship(temp1, 2, temp2);
+
+        System.out.print(myShip.getCoordinates());
     }
 }

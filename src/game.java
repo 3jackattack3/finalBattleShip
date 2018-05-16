@@ -68,7 +68,7 @@ public class game extends Frame implements ActionListener, WindowListener {
 		          @Override
 		          public void actionPerformed(ActionEvent evt) {
 		        	  pressedRow = row;
-		        	  presseCol = col;
+		        	  pressedCol = col;
 		          }
 		       });
 		}
