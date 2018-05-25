@@ -1,10 +1,8 @@
-//============================================================================
-// Name        : game.java
-// Authors     : Yuval & Jack
-// Block       : E
-// Due Date    : April 2018
-// Description : Experimenting with GUIs
-//============================================================================
+/*
+    Yuval and Jack
+    Ship.java
+    4/25/2018
+*/
 
 import java.awt.*;        // Using AWT container and component classes
 import java.awt.event.*; 
@@ -12,7 +10,7 @@ import java.awt.event.*;
 
 //TODO: QUESTIONS: ask Mr. Harris about comments + Panel/Frame issue? 
 // gridlayout? checking. 
-public class game extends Frame implements ActionListener, WindowListener {
+public class Game extends Frame implements ActionListener, WindowListener {
 	
 	private int row, col, pressedRow, pressedCol;
 	
@@ -22,7 +20,7 @@ public class game extends Frame implements ActionListener, WindowListener {
 	private Button[][] myGrid, otherGrid;
 	private String name;
 
-	public game()  {
+	public Game()  {
 	setLayout(new FlowLayout());  
 	
 	setTitle("Me being silly thinking that can work");  // "super" Frame sets its title
@@ -65,12 +63,16 @@ public class game extends Frame implements ActionListener, WindowListener {
 			add(myGrid[row][col]);
 			
 			myGrid[row][col].addActionListener(new ActionListener() {
-		          @Override
+		          private int pressedRow = row;
+	        	  private int pressedCol = col;
+	        	  @Override
 		          public void actionPerformed(ActionEvent evt) {
-		        	  pressedRow = row;
-		        	  pressedCol = col;
+		        	  //pressedRow = row;
+		        	  //pressedCol = col;
+		        	  
+		        	  tfName.setText(pressedRow + " " +pressedCol);
 		          }
-		       });
+			});
 		}
 	}
 
@@ -92,11 +94,14 @@ public class game extends Frame implements ActionListener, WindowListener {
     
 	}
 
+	public int[] getCoordsPressed() {
+		return new int[] {pressedRow, pressedCol};
+	}
 	
 	
-  public static void main(String[] args) {
-     game app = new game();
-   }
+ /* public static void main(String[] args) {
+     Game game = new Game();
+   }*/
 		 
    // ActionEvent handler - Called back upon button-click.
    @Override
